@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genshin Impact Crystal Store</title>
+  <link rel="icon" href="https://static.wikia.nocookie.net/gensin-impact/images/4/44/Item_Genesis_Crystal.png/revision/latest?cb=20201117071500" type="image/png">
+  <link rel="stylesheet" href="./Assets/Style/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: hsl(67, 100%, 71%);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-title {
+      text-align: center;
+      background-color: hsl(67, 100%, 71%);
+      color: #ffffff;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .crystal-prices {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .crystal-option {
+      width: 300px;
+      margin: 1rem;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .crystal-option:hover {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+
+    .crystal-option-header {
+      background-color: #ffffff;
+      color: black;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    .crystal-option-body {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .crystal-option-img {
+      width: 250px;
+      height: 200px;
+      margin-bottom: 30px;
+    }
+
+    .crystal-option-text {
+      color: hsl(67, 100%, 71%);
+      font-size: 1.1rem;
+    }
+
+    .custom-btn-primary {
+      position: relative;
+      background-color: hsl(67, 70%, 65%);
+      transition: 0.4s ease-in-out;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-btn-primary:hover {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+
+    .custom-btn-primary:hover {
+      background-color: #ffffff;
+      color: hsl(67, 100%, 71%);
+    }
+
+    .contact {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 50px;
+      background-color: hsl(67, 100%, 71%);
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .contact-form {
+      display: none;
+margin-top: 20px;
+    }
+
+    .form-field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+
+    button:hover {
+      opacity: 0.5;
+      transform: scale(1.2, 1.2);
+      transition: 0.3s;
+    }
+
+    @media screen {
+      button:hover {
+        opacity: 0.5;
+        transform: scale(1.2, 1.2);
+        transition: 0.3s;
+      }
+    }
+
+    .popup {
+      display: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .popup-content {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: 50px;
+    }
+
+    .popup-header {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: hsl(67, 100%, 71%);
+      color: #000000;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .popup-body {
+      padding: 10px;
+    }
+
+    .popup-body p {
+      color: #000000;
+    }
+
+    .popup-body .custom-btn-primary {
+      background-color: hsl(67, 100%, 71%);
+      color: #000000;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .exit {
+      position: absolute;
+      left: 92%;
+      top: 5%;
+      background-color: hsl(67, 100%, 71%);
+      color: #000000;
+      padding: 10px;
+      width: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-title">
+      <img src="https://thumbs.dreamstime.com/b/genshin-impact-logo-elements-icons-set-saint-petersburg-russia-august-video-game-asian-anime-227420760.jpg" width="500px" height="300px">
+    </div>
+
+    <div class="crystal-prices">
+      <div class="crystal-option" id="option1">
+        <div class="crystal-option-header">
+          <h2>60 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="crystal-option-body">
+          <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/19/UP6262-PPSA02562_00-YSPS4VC1STTIER01/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
+            class="crystal-option-img">
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+
+      <div class="crystal-option" id="option2">
+        <div class="crystal-option-header">
+          <h2>300 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="crystal-option-body">
+          <img src="https://d1x91p7vw3vuq8.cloudfront.net/web/20210103/796fdcba1808ad1b6d084dac688017f49de08715d4e5373f35625d7df90fc960.jpg"
+            class="crystal-option-img">
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+
+      <div class="crystal-option" id="option3">
+        <div class="crystal-option-header">
+          <h2>980 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="crystal-option-body">
+          <img src="https://image.api.playstation.com/vulcan/img/rnd/202104/2507/KrSyIaYnUhxEosDimmMW3JeL.png?w=440"
+            class="crystal-option-img">
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="popup" id="popup1">
+      <a href="#" class="btn custom-btn-primary exit" id="exit1">X</a>
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2>60 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="popup-body">
+          <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/19/UP6262-PPSA02562_00-YSPS4VC1STTIER01/image?w=320&h=320&bg_color=000000&opacity=100&_version=00_09_000"
+            class="crystal-option-img">
+          <p class="crystal-option-text">Gnosis Crystal is a premium currency in Genshin Impact. It is used to purchase
+            items in the game, such as characters, weapons, and other resources. The 60 Gnosis Crystal pack is the
+            smallest pack available for purchase.</p>
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup2">
+      <a href="#" class="btn custom-btn-primary exit" id="exit2">X</a>
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2>300 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="popup-body">
+          <img src="https://d1x91p7vw3vuq8.cloudfront.net/web/20210103/796fdcba1808ad1b6d084dac688017f49de08715d4e5373f35625d7df90fc960.jpg"
+            class="crystal-option-img">
+          <p class="crystal-option-text">Gnosis Crystal is a premium currency in Genshin Impact. It is used to purchase
+            items in the game, such as characters, weapons, and other resources. The 300 Gnosis Crystal pack is the
+            medium pack available for purchase.</p>
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup3">
+      <a href="#" class="btn custom-btn-primary exit" id="exit3">X</a>
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2>980 GNOSIS CRYSTAL</h2>
+        </div>
+
+        <div class="popup-body">
+          <img src="https://image.api.playstation.com/vulcan/img/rnd/202104/2507/KrSyIaYnUhxEosDimmMW3JeL.png?w=440"
+            class="crystal-option-img">
+          <p class="crystal-option-text">Gnosis Crystal is a premium currency in Genshin Impact. It is used to purchase
+            items in the game, such as characters, weapons, and other resources. The 980 Gnosis Crystal pack is the
+            largest pack available for purchase.</p>
+          <a class="btn custom-btn-primary" href="#">BUY NOW</a>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    document.getElementById('option1').addEventListener('click', function () {
+      document.getElementById('popup1').style.display = 'flex';
+    });
+
+    document.getElementById('exit1').addEventListener('click', function () {
+      document.getElementById('popup1').style.display = 'none';
+    });
+
+    document.getElementById('option2').addEventListener('click', function () {
+      document.getElementById('popup2').style.display = 'flex';
+    });
+
+    document.getElementById('exit2').addEventListener('click', function () {
+      document.getElementById('popup2').style.display = 'none';
+    });
+
+    document.getElementById('option3').addEventListener('click', function () {
+      document.getElementById('popup3').style.display = 'flex';
+    });
+
+    document.getElementById('exit3').addEventListener('click', function () {
+      document.getElementById('popup3').style.display = 'none';
+    });
+
+
+
+  </script>
+
+  <script src="./Assets/Script/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
